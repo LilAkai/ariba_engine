@@ -1,0 +1,98 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 23,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "macos-debug",
+            "displayName": "macOS Debug (vcpkg)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "$env{HOME}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "arm64-osx"
+            }
+        },
+        {
+            "name": "macos-release",
+            "displayName": "macOS Release (vcpkg)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_TOOLCHAIN_FILE": "$env{HOME}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "arm64-osx"
+            }
+        },
+        {
+            "name": "windows-debug",
+            "displayName": "Windows Debug (MinGW + vcpkg)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "D:/_CPP/tools/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+                "VCPKG_HOST_TRIPLET": "x64-mingw-static",
+                "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "D:/_CPP/tools/vcpkg/scripts/toolchains/mingw.cmake",
+                "CMAKE_C_COMPILER": "D:/_CPP/compilers/mingw64/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "D:/_CPP/compilers/mingw64/bin/g++.exe",
+                "CMAKE_MAKE_PROGRAM": "D:/_CPP/tools/ninja/ninja.exe"
+            }
+        },
+        {
+            "name": "windows-release",
+            "displayName": "Windows Release (MinGW + vcpkg)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_TOOLCHAIN_FILE": "D:/_CPP/tools/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+                "VCPKG_HOST_TRIPLET": "x64-mingw-static",
+                "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "D:/_CPP/tools/vcpkg/scripts/toolchains/mingw.cmake",
+                "CMAKE_C_COMPILER": "D:/_CPP/compilers/mingw64/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "D:/_CPP/compilers/mingw64/bin/g++.exe",
+                "CMAKE_MAKE_PROGRAM": "D:/_CPP/tools/ninja/ninja.exe"
+            }
+        },
+        {
+            "name": "Configurer la présélection en tirant parti du fichier de chaîne d’outils",
+            "displayName": "Configurer la présélection en tirant parti du fichier de chaîne d’outils",
+            "description": "Permet de définir le générateur Ninja, la génération et l’installation du répertoire",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "macos-debug",
+            "configurePreset": "macos-debug"
+        },
+        {
+            "name": "macos-release",
+            "configurePreset": "macos-release"
+        },
+        {
+            "name": "windows-debug",
+            "configurePreset": "windows-debug"
+        },
+        {
+            "name": "windows-release",
+            "configurePreset": "windows-release"
+        }
+    ]
+}
