@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28)
 
-project(geometry_dash
+project(Ariba_Engine
     VERSION 0.1.0
     LANGUAGES C CXX
 )
@@ -27,7 +27,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
-find_package(SFML 3 CONFIG REQUIRED COMPONENTS Graphics Window System Audio)
+find_package(SFML 3.1 CONFIG REQUIRED COMPONENTS Graphics Window System Audio)
+
+message(STATUS "SFML trouvée : ${SFML_VERSION} (${SFML_DIR})")
 
 file(GLOB_RECURSE PROJECT_SOURCES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
@@ -57,8 +59,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Resources")
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-            "${CMAKE_CURRENT_SOURCE_DIR}/Resources"
-            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/Resources"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Resources"
+        "$<TARGET_FILE_DIR:${PROJECT_NAME}>/Resources"
         COMMENT "Copie des ressources"
     )
 endif()
