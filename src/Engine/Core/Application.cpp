@@ -1,8 +1,6 @@
 #include <Engine/Core/Application.hpp>
 #include <Engine/Core/Logger.hpp>
 
-#include <Game/States/InGame.hpp>
-#include <Game/States/Menu.hpp>
 
 int Application::Run() {
     if (!Init()) {
@@ -39,8 +37,7 @@ bool Application::Init() {
     m_assets.AcquireGroup("Common");
 
     //- StateManager
-    m_states.Push<GameState>();
-    m_states.Push<MenuState>();
+
 
     if (!m_window.isOpen()) {
         return false;

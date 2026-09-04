@@ -1,6 +1,6 @@
 #include <Engine/Core/Application.hpp>
 
 int main(int argc, char const *argv[]) {
-    Application app{"Geometry Dash"};
+    Application app{"Ariba Engine - Template"};
     return app.Run();
 }
