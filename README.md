@@ -304,10 +304,3 @@ The project will continue to evolve as new engine systems are implemented and re
 ## License
 
 License information will be added as the project matures.
-
-```
-
-Le README est volontairement formulé pour être **crédible sur GitHub aujourd’hui** : il distingue ce qui existe déjà de la roadmap, au lieu de présenter Ariba Engine comme un moteur complet. Ton dépôt est actuellement public et ne possède pas encore de description ni de topics GitHub, donc je te recommande aussi de mettre une courte description du type **“Modular C++ game engine built from scratch with SFML”** et d’ajouter les topics `cpp`, `cpp20`, `game-engine`, `gamedev`, `sfml`, `cmake`, `vcpkg`.
-
-[Voir le dépôt Ariba Engine](https://github.com/LilAkai/ariba_engine?utm_source=chatgpt.com)
-```
